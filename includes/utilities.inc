@@ -166,8 +166,7 @@ function get_page_by_url() {
 function get_object_url_base_by_url(){
     global $base_url;
     $url = current_path();
-    //$url = "https://dev.repository.ou.edu/uuid/f5315243-4db4-59a6-b60c-03c016ebdafb#page/18/mode/2up"; //current_path();
-    $pid = get_pid_by_url();
+
     if(strpos($url, "uuid") !== FALSE){
         $id = explode(":", $pid);
         $id = $id[1];

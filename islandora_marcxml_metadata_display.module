@@ -1,0 +1,34 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function islandora_marcxml_metadata_display_theme_registry_alter(&$theme_registry) {
+    if(isset($theme_registry['islandora_dublin_core_display'])){
+        $module_path = drupal_get_path('module', 'islandora_marcxml_metadata_display');
+        $theme_registry['islandora_dublin_core_display']['theme path'] = $module_path;
+        $theme_registry['islandora_dublin_core_display']['template'] = $module_path.'/theme/islandora-dublin-core-display';
+        $theme_registry['islandora_dublin_core_display']['file'] = '/theme/theme.inc';
+        array_pop($theme_registry['islandora_dublin_core_display']['includes']);
+        $theme_registry['islandora_dublin_core_display']['includes'][] = $module_path.'/theme/theme.inc';
+        array_pop($theme_registry["islandora_dublin_core_display"]["preprocess functions"]);
+        $theme_registry["islandora_dublin_core_display"]["preprocess functions"][] = "islandora_marcxml_metadata_display_preprocess_islandora_dublin_core_display";
+    }
+}
+
+function islandora_marcxml_metadata_display_theme(){
+    return array(    
+    'islandora_marcxml_metadata_display_info' => array(
+      'file' => 'theme/theme.inc',
+       'preprocess functions' => array(
+          0 => 'islandora_marcxml_metadata_display_preprocess_html'
+        ),
+    ),
+  );
+}

@@ -1,0 +1,7 @@
+package = Islandora Internet Archive Bookreader Custom
+name = Islandora Marcxml Metadata Display
+description = Display the brief and detailed metadata derived from Marxml metadata
+dependencies[] = islandora
+dependencies[] = islandora_marcxml
+version = 7.x-dev
+core = 7.x
