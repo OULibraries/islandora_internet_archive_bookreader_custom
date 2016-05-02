@@ -27,6 +27,7 @@
         1 => '',
     );
 
+if(!empty($marcxml_output['Brief metadata']) && count($marcxml_output['Brief metadata']) > 0){
 ?>
 
 <fieldset <?php $print ? print('class="islandora "') : print('class="islandora "');?>>
@@ -55,6 +56,13 @@
       </table>
   </div>
 </fieldset>
+
+<?php
+}
+
+if(!empty($marcxml_output['Detailed metadata']) && count($marcxml_output['Detailed metadata']) > 0){
+?>
+
 <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata"');?>>
   <legend><span class="fieldset-legend"><?php print t('Detailed metadata'); ?></span></legend>
   <div class="fieldset-wrapper">
@@ -81,6 +89,13 @@
       </table>
   </div>
 </fieldset>
+
+<?php
+}
+
+if(!empty($marcxml_output['Catalog record, MARC']) && count($marcxml_output['Catalog record, MARC']) > 0){
+?>
+
 <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata"');?>>
   <legend><span class="fieldset-legend"><?php print t('Catalog record, MARC'); ?></span></legend>
   <div class="fieldset-wrapper">
@@ -99,3 +114,7 @@
       </table>
   </div>
 </fieldset>
+
+<?php
+}
+?>
